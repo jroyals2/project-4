@@ -6,5 +6,5 @@ class User < ActiveRecord::Base
   include DeviseTokenAuth::Concerns::User
 
   has_many :tailgate_events
-  has many :tailgate_members
+  has_many :tailgate_members
 end

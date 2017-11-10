@@ -1,5 +1,5 @@
-class TailgateEvent < ApplicationRecord
+class Api::TailgateEvent < ApplicationRecord
   belongs_to :user
   belongs_to :event
-  has many :tailgate_members
+  has_many :tailgate_members
 end
