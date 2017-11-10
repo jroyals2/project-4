@@ -5,6 +5,6 @@ class User < ActiveRecord::Base
           :omniauthable
   include DeviseTokenAuth::Concerns::User
 
-  has_many :tailgate_events
-  has_many :tailgate_members
+  has_many :tailgate_events, dependent: :destroy
+  has_many :tailgate_members, dependent: :destroy
 end

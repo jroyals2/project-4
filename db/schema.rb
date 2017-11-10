@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171110184100) do
+ActiveRecord::Schema.define(version: 20171110185109) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,15 @@ ActiveRecord::Schema.define(version: 20171110184100) do
     t.datetime "updated_at", null: false
     t.index ["event_id"], name: "index_tailgate_events_on_event_id"
     t.index ["user_id"], name: "index_tailgate_events_on_user_id"
+  end
+
+  create_table "tailgate_members", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "tailgate_event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tailgate_event_id"], name: "index_tailgate_members_on_tailgate_event_id"
+    t.index ["user_id"], name: "index_tailgate_members_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -68,4 +77,6 @@ ActiveRecord::Schema.define(version: 20171110184100) do
 
   add_foreign_key "tailgate_events", "events"
   add_foreign_key "tailgate_events", "users"
+  add_foreign_key "tailgate_members", "tailgate_events"
+  add_foreign_key "tailgate_members", "users"
 end

@@ -1,9 +1,9 @@
-class TailgateEventsController < ApplicationController
+class Api::TailgateEventsController < ApplicationController
 
     def index
         
     end
-    
+
     def show
     
     end

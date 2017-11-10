@@ -1,7 +1,8 @@
-class EventsController < ApplicationController
+class Api::EventsController < ApplicationController
 
     def index
-
+        @events = Event.all
+        render json: @events
     end
 
     def show
@@ -17,7 +18,7 @@ class EventsController < ApplicationController
     end
 
     def destroy
-        
+
     end
 
 end

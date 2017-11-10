@@ -1,4 +1,4 @@
-class Api::Event < ApplicationRecord
+class Event < ApplicationRecord
 
-    has_many :tailgate_events
+    has_many :tailgate_events, dependent: :destroy
 end

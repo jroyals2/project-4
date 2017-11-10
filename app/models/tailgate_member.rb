@@ -1,4 +1,4 @@
-class Api::TailgateMember < ApplicationRecord
+class TailgateMember < ApplicationRecord
   belongs_to :user
-  belongs_to :tailgate_event
+  belongs_to :tailgate_event 
 end

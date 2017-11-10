@@ -1,4 +1,4 @@
-class TailgateMembersController < ApplicationController
+class Api::TailgateMembersController < ApplicationController
 
     def index
         
