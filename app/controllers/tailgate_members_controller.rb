@@ -1,0 +1,2 @@
+class TailgateMembersController < ApplicationController
+end
