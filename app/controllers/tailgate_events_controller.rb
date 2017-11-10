@@ -1,0 +1,2 @@
+class TailgateEventsController < ApplicationController
+end
