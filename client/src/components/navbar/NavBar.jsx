@@ -7,7 +7,9 @@ const Nav = styled.div`
 display: flex;
 flex-direction: row;
 justify-content: space-around;
-
+align-items: center;
+background-color: red;
+height: 70px;
 `
 
 class componentName extends Component {
