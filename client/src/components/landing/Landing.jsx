@@ -37,7 +37,7 @@ display: flex;
 align-items: center;
 
 `
-class componentName extends Component {
+class Landing extends Component {
     render() {
         if (localStorage['access-token']) {
             return <Redirect to='/users' />
@@ -55,4 +55,4 @@ class componentName extends Component {
     }
 }
 
-export default componentName;
+export default Landing;

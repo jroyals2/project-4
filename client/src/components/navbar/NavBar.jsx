@@ -12,7 +12,7 @@ background-color: red;
 height: 70px;
 `
 
-class componentName extends Component {
+class NavBar extends Component {
     state ={
         redirect: false
     }
@@ -36,4 +36,4 @@ signOutRedirect = async (event) => {
     }
 }
 
-export default componentName;
+export default NavBar;

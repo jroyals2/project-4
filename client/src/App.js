@@ -6,6 +6,7 @@ import {clearAuthTokens, saveAuthTokens, setAxiosDefaults, userIsLoggedIn} from 
 import Landing from './components/landing/Landing.jsx'
 import NavBar from './components/navbar/NavBar.jsx'
 import UserPage from './components/users/UserPage.jsx'
+import EventPage from './components/events/EventPage.jsx'
 
 class App extends Component {
 
@@ -95,6 +96,7 @@ class App extends Component {
                         <Route exact path="/" component={Landing} />
                         <Route exact path="/signUp" render={SignUpLogInComponent}/>
                         <Route exact path="/users" render={UserComponent} />
+                        <Route exact path="/events/:event_id" component={EventPage} />
                     </Switch>
                     
                 </div>

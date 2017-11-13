@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import styled from 'styled-components'
-import { Redirect } from 'react-router-dom'
+import { Redirect, Link } from 'react-router-dom'
 
 const PageWrapper = styled.div`
 margin: 15px;
@@ -15,7 +15,7 @@ const HeaderTag = styled.h1`
 margin: 50px;
 `
 
-class componentName extends Component {
+class UserPage extends Component {
 
     state = {
         events: [],
@@ -60,7 +60,7 @@ class componentName extends Component {
             {this.state.events.map((event) => {
                 return(<div>
                     
-                    {event.event_name}
+                    <Link to={`/events/${event.id}`}>{event.event_name}</Link>
                 </div>)
             })}
         </div>
@@ -89,4 +89,4 @@ class componentName extends Component {
     }
 }
 
-export default componentName;
+export default UserPage;
