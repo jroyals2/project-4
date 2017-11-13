@@ -30,8 +30,7 @@ class SignUpLogIn extends Component {
     state = {
         email: '',
         password: '',
-        password_confirmation: '',
-        redirect: false
+        password_confirmation: ''
     }
 
     signUp = (event) => {
@@ -43,13 +42,13 @@ class SignUpLogIn extends Component {
         )
     }
 
-    signIn = (event) => {
+    signIn = async (event) => {
         event.preventDefault()
         this.props.signIn(
             this.state.email,
             this.state.password
         )
-        this.setState({redirect: !this.state.redirect})
+        
     }
 
     handleChange = (event) => {
@@ -59,8 +58,8 @@ class SignUpLogIn extends Component {
     }
 
     render() {
-        if (this.state.redirect) {
-            return <Redirect to={`/users`} />
+        if (localStorage['access-token']) {
+            return <Redirect to='/users' />
         }
         return (
             <PageWrapper>

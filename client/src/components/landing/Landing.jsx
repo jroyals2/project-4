@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components'
+import { Redirect } from 'react-router-dom'
 
 
 const Headline = styled.h1`
@@ -38,6 +39,9 @@ align-items: center;
 `
 class componentName extends Component {
     render() {
+        if (localStorage['access-token']) {
+            return <Redirect to='/users' />
+        }
         return (
             <div>
                 <Headline>Welcome to Tailgates!</Headline>

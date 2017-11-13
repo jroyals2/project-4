@@ -68,6 +68,7 @@ class App extends Component {
           clearAuthTokens();
   
           this.setState({signedIn: false})
+          
       } catch(error) {
           console.log(error)
       }
@@ -76,12 +77,15 @@ class App extends Component {
   // {this.state.signedIn ? null : <Redirect to="/signUp"/>}
 
     render() {
-
+   
         const SignUpLogInComponent = () => (
             <SignUpLogIn
                 signUp={this.signUp}
                 signIn={this.signIn}/>
         )
+        const UserComponent = () => (
+          <UserPage signedIn={this.state.signedIn}/>
+      )
 
         return (
             <Router>
@@ -90,7 +94,7 @@ class App extends Component {
                     <Switch>
                         <Route exact path="/" component={Landing} />
                         <Route exact path="/signUp" render={SignUpLogInComponent}/>
-                        <Route exact path="/users" component={UserPage} />
+                        <Route exact path="/users" render={UserComponent} />
                     </Switch>
                     
                 </div>
