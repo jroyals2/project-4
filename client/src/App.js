@@ -98,7 +98,7 @@ class App extends Component {
                         <Route exact path="/signUp" render={SignUpLogInComponent}/>
                         <Route exact path="/users" render={UserComponent} />
                         <Route exact path="/events/:event_id" component={EventPage} />
-                        <Route exact path="/users/tailgates" component={TailgatesPage}/>
+                        <Route exact path="/users/tailgates/:tailgate_id" component={TailgatesPage}/>
                     </Switch>
                     
                 </div>

@@ -8,11 +8,22 @@ margin: 15px;
 `
 const FlexWrap = styled.div`
 display: flex;
-justify-content: space-between;
+justify-content: space-around;
 `
 
 const HeaderTag = styled.h1`
 margin: 50px;
+`
+
+const CardWrapper = styled.div`
+
+box-shadow: 2px 4px 8px 0 rgba(0,0,0,0.2);
+transition: 0.3s;
+:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+  padding: 2px 16px;
+
 `
 
 class UserPage extends Component {
@@ -69,7 +80,7 @@ class UserPage extends Component {
             {this.state.tailgates.map((tailgate) => {
                 return (
                 <div>
-                    <Link to={`/users/tailgates`}>{tailgate.tailgate_name}</Link>
+                    <Link to={`/users/tailgates/${tailgate.id}`}>{tailgate.tailgate_name}</Link>
                 </div>)
             })}
         </div>
@@ -77,12 +88,12 @@ class UserPage extends Component {
             <PageWrapper>
                 <HeaderTag>Welcome to Your Tailgates Home Base!</HeaderTag>
                 <FlexWrap>
-                    <div>
+                    <CardWrapper>
                         {eventList}
-                    </div>
-                    <div>
+                    </CardWrapper>
+                    <CardWrapper>
                         {tailgates}
-                    </div>
+                    </CardWrapper>
                 </FlexWrap>
             </PageWrapper>
         );

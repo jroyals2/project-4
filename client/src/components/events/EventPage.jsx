@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom'
 import axios from 'axios'
+import styled from 'styled-components'
+
+const TitleWrapper = styled.div`
+text-align: center;
+`
 
 class EventPage extends Component {
     state = {
@@ -41,10 +46,11 @@ class EventPage extends Component {
         }
         return (
             <div>
+                <TitleWrapper>
                <h1>{this.state.event.event_name}</h1>
                <h3>{this.state.event.location}</h3>
                <h4>{this.state.event.teams}</h4>
-               
+               </TitleWrapper>
 
             </div>
         );
