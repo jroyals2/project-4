@@ -3,6 +3,8 @@ import {Route, BrowserRouter as Router, Switch, Redirect} from 'react-router-dom
 import SignUpLogIn from './components/users/SignUpLogIn'
 import axios from 'axios'
 import {clearAuthTokens, saveAuthTokens, setAxiosDefaults, userIsLoggedIn} from "./util/SessionHeaderUtil"
+import Landing from './components/landing/Landing.jsx'
+import NavBar from './components/navbar/NavBar.jsx'
 
 class App extends Component {
 
@@ -70,6 +72,7 @@ class App extends Component {
       }
   }
   
+  // {this.state.signedIn ? null : <Redirect to="/signUp"/>}
 
     render() {
 
@@ -82,11 +85,13 @@ class App extends Component {
         return (
             <Router>
                 <div>
+                <NavBar />
+                {this.state.signedIn ? <button onClick={this.signOut}>Sign Out</button> : null }
                     <Switch>
+                        <Route exact path="/" component={Landing} />
                         <Route exact path="/signUp" render={SignUpLogInComponent}/>
                     </Switch>
-                    <button onClick={this.signOut}>Sign Out</button>
-                    {this.state.signedIn ? null : <Redirect to="/signUp"/>}
+                    
                 </div>
             </Router>
         )
