@@ -5,6 +5,7 @@ import axios from 'axios'
 import {clearAuthTokens, saveAuthTokens, setAxiosDefaults, userIsLoggedIn} from "./util/SessionHeaderUtil"
 import Landing from './components/landing/Landing.jsx'
 import NavBar from './components/navbar/NavBar.jsx'
+import UserPage from './components/users/UserPage.jsx'
 
 class App extends Component {
 
@@ -89,6 +90,7 @@ class App extends Component {
                     <Switch>
                         <Route exact path="/" component={Landing} />
                         <Route exact path="/signUp" render={SignUpLogInComponent}/>
+                        <Route exact path="/users" component={UserPage} />
                     </Switch>
                     
                 </div>

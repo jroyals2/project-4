@@ -2,6 +2,29 @@ import React, {Component} from 'react'
 import { Redirect } from 'react-router-dom'
 import styled from 'styled-components'
 
+const StyledForm = styled.form`
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+margin: 25%;
+
+`
+const PageWrapper = styled.div`
+display: flex;
+justify-content: center;
+align-items: center;
+`
+const FormDiv = styled.div`
+display: flex;
+margin: 5%;
+`
+const InputWrapper = styled.input`
+height: 30px;
+width: 280px;
+
+`
+
 class SignUpLogIn extends Component {
 
     state = {
@@ -26,6 +49,7 @@ class SignUpLogIn extends Component {
             this.state.email,
             this.state.password
         )
+        this.setState({redirect: !this.state.redirect})
     }
 
     handleChange = (event) => {
@@ -35,27 +59,27 @@ class SignUpLogIn extends Component {
     }
 
     render() {
+        if (this.state.redirect) {
+            return <Redirect to={`/users`} />
+        }
         return (
-            <div>
-                <form>
-                    <div>
-                        <label htmlFor="email">E-mail: </label>
-                        <input onChange={this.handleChange} type="text" name="email" value={this.state.email}/>
-                    </div>
-                    <div>
-                        <label htmlFor="password">Password: </label>
-                        <input onChange={this.handleChange} type="password" name="password" value={this.state.password}/>
-                    </div>
-                    <div>
-                        <label htmlFor="password_confirmation">Confirm Password: </label>
-                        <input onChange={this.handleChange} type="password" name="password_confirmation"
-                               value={this.state.password_confirmation}/>
-                    </div>
+            <PageWrapper>
+                <StyledForm>
+                    <FormDiv>
+                        <InputWrapper onChange={this.handleChange} type="text" name="email" value={this.state.email} placeholder="YOUR EMAIL"/>
+                    </FormDiv>
+                    <FormDiv>
+                        <InputWrapper onChange={this.handleChange} type="password" name="password" value={this.state.password} placeholder="PASSWORD"/>
+                    </FormDiv>
+                    <FormDiv>
+                        <InputWrapper onChange={this.handleChange} type="password" name="password_confirmation"
+                               value={this.state.password_confirmation} placeholder="CONFIRM PASSWORD"/>
+                    </FormDiv>
 
                     <button onClick={this.signUp}>Sign Up</button>
                     <button onClick={this.signIn}>Log In</button>
-                </form>
-            </div>
+                </StyledForm>
+            </PageWrapper>
         )
     }
 }
