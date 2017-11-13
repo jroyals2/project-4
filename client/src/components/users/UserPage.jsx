@@ -1,30 +1,43 @@
 import React, { Component } from 'react';
+import axios from 'axios'
 
 class componentName extends Component {
 
     state = {
-        user: {},
         events: [],
         tailgates: []
     }
 
     componentWillMount() {
+        this.getEvents()
+        this.getUserTailgates()
+    }
+  
+    getEvents = async () => {
+        try {
+            const res = await axios.get(`/api/events`)
+            this.setState({events: res.data})
+        } catch (error) {
+            console.log(error)
+        }
 
     }
-    getCurrentUser = () => {
+    getUserTailgates = async () => {
+        try {
+            const res = await axios.get(`/api/tailgate_events`)
+            this.setState({tailgates: res.data})
 
-    }
-    getEvents = () => {
+        } catch (error) {
+            console.log(error)
+        }
 
-    }
-    getUserTailgates = () => {
-        
+
     }
 
     render() {
         return (
             <div>
-                Sup
+                
             </div>
         );
     }
