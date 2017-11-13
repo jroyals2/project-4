@@ -85,8 +85,7 @@ class App extends Component {
         return (
             <Router>
                 <div>
-                <NavBar />
-                {this.state.signedIn ? <button onClick={this.signOut}>Sign Out</button> : null }
+                <NavBar signedIn={this.state.signedIn} signOut={this.signOut}/>
                     <Switch>
                         <Route exact path="/" component={Landing} />
                         <Route exact path="/signUp" render={SignUpLogInComponent}/>

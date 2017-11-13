@@ -1,11 +1,13 @@
 import React, {Component} from 'react'
+import { Redirect } from 'react-router-dom'
 
 class SignUpLogIn extends Component {
 
     state = {
         email: '',
         password: '',
-        password_confirmation: ''
+        password_confirmation: '',
+        redirect: false
     }
 
     signUp = (event) => {
