@@ -1,7 +1,8 @@
 class Api::TailgateEventsController < ApplicationController
 
     def index
-        @tailgate_events = TailgateEvent.all
+        @user = current_user
+        @tailgate_events = @user.tailgate_events
         render json: @tailgate_events
     end
 
