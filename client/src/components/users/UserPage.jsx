@@ -69,7 +69,7 @@ class UserPage extends Component {
             {this.state.tailgates.map((tailgate) => {
                 return (
                 <div>
-                    {tailgate.tailgate_name}
+                    <Link to={`/users/tailgates`}>{tailgate.tailgate_name}</Link>
                 </div>)
             })}
         </div>

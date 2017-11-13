@@ -7,6 +7,7 @@ import Landing from './components/landing/Landing.jsx'
 import NavBar from './components/navbar/NavBar.jsx'
 import UserPage from './components/users/UserPage.jsx'
 import EventPage from './components/events/EventPage.jsx'
+import TailgatesPage from './components/tailgates/TailgatesPage.jsx'
 
 class App extends Component {
 
@@ -97,6 +98,7 @@ class App extends Component {
                         <Route exact path="/signUp" render={SignUpLogInComponent}/>
                         <Route exact path="/users" render={UserComponent} />
                         <Route exact path="/events/:event_id" component={EventPage} />
+                        <Route exact path="/users/tailgates" component={TailgatesPage}/>
                     </Switch>
                     
                 </div>

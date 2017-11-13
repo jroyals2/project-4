@@ -6,6 +6,7 @@ class Api::TailgateEventsController < ApplicationController
         render json: @tailgate_events
     end
 
+
     def show
         tailgate_events_id = params[:id]
         @tailgate_event = TailgateEvent.find_by_id(tailgate_events_id)
