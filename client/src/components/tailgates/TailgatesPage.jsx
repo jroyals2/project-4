@@ -99,6 +99,7 @@ class TailgatesPage extends Component {
             </form>
             <button onClick={this.handleToggle}>Go back</button>
         </div>
+        
         return (
             <div>
                 {this.state.edit ? edit : noEdit}
