@@ -32,6 +32,7 @@ class EventPage extends Component {
 
     }
 
+
     getEventTailgates = async () => {
         try {
             const id = this.props.match.params.event_id
