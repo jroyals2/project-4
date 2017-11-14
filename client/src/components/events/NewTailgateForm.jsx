@@ -17,7 +17,24 @@ class NewTailgateForm extends Component {
         this.setState({newTailgate})
 
     }
-    handleSubmit = () => {
+    handleSubmit = async (event) => {
+        event.preventDefault()
+        const eventId = this.props.eventId
+        const payload = {
+            tailgate_name: this.state.newTailgate.tailgate_name,
+            about: this.state.newTailgate.about,
+            cost: this.state.newTailgate.cost,
+            event_id: eventId
+        }
+        const emptyForm = {
+            tailgate_name: '',
+            about: '',
+            cost: ''
+        }
+       await axios.post('/api/tailgate_events', payload)
+       await this.props.getEventTailgates()
+       await this.props.handleToggle()
+       this.setState({newTailgate: emptyForm})
         
     }
     render() {

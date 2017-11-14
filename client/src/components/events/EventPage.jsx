@@ -11,7 +11,8 @@ text-align: center;
 class EventPage extends Component {
     state = {
         event: {},
-        tailgates: []
+        tailgates: [],
+        toggleForm: false
     }
    async componentWillMount() {
     await this.getEvent()
@@ -41,12 +42,18 @@ class EventPage extends Component {
             console.log(error)
         }
     }
+    handleToggle = () => {
+        this.setState({toggleForm: !this.state.toggleForm})
+    }
 
     render() {
         if (!localStorage['access-token']) {
             return <Redirect to='/' />
         }
-
+        const host = <div>
+            <p>Don't see an event you like? Host one!</p>
+            <button onClick={this.handleToggle}>Host an event!</button>
+        </div>
         const tailgates = <div>
             {this.state.tailgates.map((tailgate) => {
                 return(
@@ -71,7 +78,7 @@ class EventPage extends Component {
                <h4>{this.state.event.teams}</h4>
                </TitleWrapper>
                 {tailgates}
-                <NewTailgateForm />
+                {this.state.toggleForm ? <NewTailgateForm handleToggle={this.handleToggle} getEventTailgates={this.getEventTailgates} eventId={this.props.match.params.event_id} /> : host }
             </div>
         );
     }
