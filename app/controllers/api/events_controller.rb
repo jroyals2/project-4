@@ -33,6 +33,13 @@ class Api::EventsController < ApplicationController
 
     end
 
+    # def new
+    #     event_id = params[:id]
+    #     @event = Event.find_by_id(event_id)
+    #     @all_tailgates = @event.tailgate_events.all
+    #     render json: @all_tailgates
+    # end
+
     private
 
     def event_params

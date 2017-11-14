@@ -32,7 +32,8 @@ class EventPage extends Component {
 
     getEventTailgates = async () => {
         try {
-            const res = await axios.get(`/api/tailgate_events`)
+            const id = this.props.match.params.event_id
+            const res = await axios.get(`/events/${id}/tailgates`)
             this.setState({tailgates: res.data})
 
         } catch (error) {
@@ -44,6 +45,8 @@ class EventPage extends Component {
         if (!localStorage['access-token']) {
             return <Redirect to='/' />
         }
+
+        
         return (
             <div>
                 <TitleWrapper>

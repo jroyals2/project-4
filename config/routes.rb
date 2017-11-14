@@ -7,8 +7,8 @@ Rails.application.routes.draw do
     
   end
 
-  resources :events
+  resources :events 
 
   end
-
+  get 'events/:event_Id/tailgates', to: 'event#show'
 end
