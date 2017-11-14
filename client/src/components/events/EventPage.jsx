@@ -7,7 +7,8 @@ import NewTailgateForm from './NewTailgateForm.jsx'
 
 const PageWrapper = styled.div`
 display: flex;
-flex-direction: space-between;
+justify-content: space-around;
+
 `
 
 const TitleWrapper = styled.div`
@@ -66,7 +67,7 @@ class EventPage extends Component {
             return <Redirect to='/' />
         }
         const host = <div>
-            <p>Don't see an event you like? Host one!</p>
+            <h3>Don't see an event you like? Host one!</h3>
             <button onClick={this.handleToggle}>Host an event!</button>
         </div>
         const tailgates = <div>

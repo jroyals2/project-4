@@ -22,6 +22,7 @@ gem 'devise'
 gem 'omniauth'
 gem 'devise_token_auth'
 gem 'cancancan'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
