@@ -15,7 +15,7 @@ class Api::TailgateEventsController < ApplicationController
             about: @tailgate_event.about,
             cost: @tailgate_event.cost,
             tailgate_name: @tailgate_event.tailgate_name,
-            user: @tailgate_event.user
+            user: @tailgate_event.user.name
         }
         render json: tailgate_response
     end

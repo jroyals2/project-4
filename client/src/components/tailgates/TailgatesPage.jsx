@@ -74,7 +74,7 @@ class TailgatesPage extends Component {
         const noEdit = <div>
             <TitleWrapper>
                 <h1>{this.state.tailgate.tailgate_name}</h1>
-                {/* <h2>{this.state.tailgate.user.name}</h2> */}
+                <h2>Hosted by: {this.state.tailgate.user}</h2>
                 <h3>{this.state.tailgate.about}</h3>
                 <p>{this.state.tailgate.cost}</p>
                 <button onClick={this.handleToggle}>Edit</button>
