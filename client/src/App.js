@@ -29,9 +29,10 @@ class App extends Component {
       }
   }
 
-    signUp = async (email, password, password_confirmation) => {
+    signUp = async (email, password, password_confirmation, name) => {
         try {
             const payload = {
+                name: name,
                 email: email,
                 password: password,
                 password_confirmation: password_confirmation

@@ -30,7 +30,8 @@ class SignUpLogIn extends Component {
     state = {
         email: '',
         password: '',
-        password_confirmation: ''
+        password_confirmation: '',
+        name: ''
     }
 
     signUp = (event) => {
@@ -38,7 +39,8 @@ class SignUpLogIn extends Component {
         this.props.signUp(
             this.state.email,
             this.state.password,
-            this.state.password_confirmation
+            this.state.password_confirmation,
+            this.state.name
         )
     }
 
@@ -65,14 +67,17 @@ class SignUpLogIn extends Component {
             <PageWrapper>
                 <StyledForm>
                     <FormDiv>
-                        <InputWrapper onChange={this.handleChange} type="text" name="email" value={this.state.email} placeholder="YOUR EMAIL"/>
+                        <InputWrapper onChange={this.handleChange} type="text" name="name" value={this.state.name} placeholder="YOUR NAME" />
                     </FormDiv>
                     <FormDiv>
-                        <InputWrapper onChange={this.handleChange} type="password" name="password" value={this.state.password} placeholder="PASSWORD"/>
+                        <InputWrapper onChange={this.handleChange} type="text" name="email" value={this.state.email} placeholder="YOUR EMAIL" />
+                    </FormDiv>
+                    <FormDiv>
+                        <InputWrapper onChange={this.handleChange} type="password" name="password" value={this.state.password} placeholder="PASSWORD" />
                     </FormDiv>
                     <FormDiv>
                         <InputWrapper onChange={this.handleChange} type="password" name="password_confirmation"
-                               value={this.state.password_confirmation} placeholder="CONFIRM PASSWORD"/>
+                            value={this.state.password_confirmation} placeholder="CONFIRM PASSWORD" />
                     </FormDiv>
 
                     <button onClick={this.signUp}>Sign Up</button>

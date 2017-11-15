@@ -11,4 +11,5 @@ Rails.application.routes.draw do
 
   end
   get 'events/:event_Id/tailgates', to: 'event#show'
+  resources :users
 end

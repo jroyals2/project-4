@@ -7,8 +7,13 @@ class NewTailgateForm extends Component {
             tailgate_name: '',
             about: '',
             cost: ''
-        }
+        },
+        username: '' 
     }
+
+    getUser = async () => {
+        await axios.get()
+    } 
 
     handleChange = (event) => {
         const attribute = event.target.name
@@ -32,9 +37,9 @@ class NewTailgateForm extends Component {
             cost: ''
         }
        await axios.post('/api/tailgate_events', payload)
-       await this.props.getEventTailgates()
-       await this.props.handleToggle()
-       this.setState({newTailgate: emptyForm})
+        this.props.getEventTailgates()
+        this.props.handleToggle()
+        this.setState({newTailgate: emptyForm})
         
     }
     render() {
