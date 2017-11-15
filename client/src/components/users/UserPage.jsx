@@ -82,13 +82,14 @@ class UserPage extends Component {
             })}
         </div>
         const tailgates = <div>
-            <h3>Your Upcoming Tailgates</h3>
+            <h3>Tailgates You Are Hosting</h3>
             {this.state.tailgates.map((tailgate) => {
                 return (
                 <div>
                     <Link to={`/users/tailgates/${tailgate.id}`}>{tailgate.tailgate_name}</Link>
                 </div>)
             })}
+            
         </div>
         return (
             <PageWrapper>

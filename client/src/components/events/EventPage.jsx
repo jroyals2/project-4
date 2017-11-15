@@ -106,6 +106,7 @@ class EventPage extends Component {
                 <TitleWrapper>
                     <h1>{this.state.event.event_name}</h1>
                     <h3>{this.state.event.location}</h3>
+                    <h3>{this.state.event.date}</h3>
                     <h4>{this.state.event.teams}</h4>
                     <h4>Temp: {this.state.weather.temp}°F</h4>
                     <h4>{this.state.weather.weatherCondition}</h4>

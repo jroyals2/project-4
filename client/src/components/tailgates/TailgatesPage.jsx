@@ -11,14 +11,21 @@ class TailgatesPage extends Component {
 
     state = {
         tailgate: {},
+        members: [],
         redirect: false,
         edit: false
     }
 
     async componentWillMount() {
         this.getUserTailgate()
+        this.getAttendingMembers()
     }
 
+    getAttendingMembers = async () => {
+        const id = this.props.match.params.tailgate_id
+        const res = await axios.get(`/api/tailgate_events/${id}/tailgate_members/${id}`)
+        this.setState({members: res.data})
+    }
     getUserTailgate = async () => {
         try {
             const id = this.props.match.params.tailgate_id
@@ -63,6 +70,15 @@ class TailgatesPage extends Component {
         await axios.put(`/api/tailgate_events/${id}`, payload)
         await this.setState({edit: !this.state.edit})
     }
+    addCurrentUserToTailgate = async () => {
+        const id = this.props.match.params.tailgate_id
+        const payload = {
+            tailgate_event_id: id
+        }
+        console.log(payload)
+        await axios.post(`/api/tailgate_events/${id}/tailgate_members`, payload)
+        await this.getAttendingMembers()
+    }
 
     render() {
         if (!localStorage['access-token']) {
@@ -79,7 +95,15 @@ class TailgatesPage extends Component {
                 <p>{this.state.tailgate.cost}</p>
                 <button onClick={this.handleToggle}>Edit</button>
                 <button onClick={this.deleteTailgateEvent}>Delete</button>
+                <button onClick={this.addCurrentUserToTailgate}>Attend this tailgate</button>
             </TitleWrapper>
+            {this.state.members.map((user) => {
+                return(
+                    <div>
+                        <h3>{user.user}</h3>
+                    </div>
+                )
+            })}
         </div>
 
         const edit = <div>

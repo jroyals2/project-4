@@ -5,7 +5,7 @@ TailgateEvent.destroy_all
 
 
 trey = User.create!(
-    name: 'trey',
+    name: 'Trey',
     email: 'trey@trey.com',
     password: 'password',
     password_confirmation: 'password'
