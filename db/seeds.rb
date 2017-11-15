@@ -5,12 +5,14 @@ TailgateEvent.destroy_all
 
 
 trey = User.create!(
+    name: 'trey',
     email: 'trey@trey.com',
     password: 'password',
     password_confirmation: 'password'
 )
 
 james = User.create!(
+    name: 'James',
     email: 'james@james.com',
     password: 'password',
     password_confirmation: 'password'
@@ -19,6 +21,7 @@ james = User.create!(
 falcons = Event.create!(
     event_name: "Falcons game",
     location: "Atlanta, Georgia",
+    zipcode: 30308,
     date: "November 11th, 2017",
     teams: "Atlanta Falcons vs Dallas Cowboys"
 )
@@ -26,6 +29,7 @@ falcons = Event.create!(
 braves = Event.create!(
     event_name: "Braves game",
     location: "Atlanta, Georgia",
+    zipcode: 30339,
     date: "November 30th, 2017",
     teams: "Atlanta Braves vs New York Mets"
 )

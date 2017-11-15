@@ -8,8 +8,9 @@ Rails.application.routes.draw do
   end
 
   resources :events 
-
+  get '/weather/:zipcode', to: "weather#show"
   end
   get 'events/:event_Id/tailgates', to: 'event#show'
   resources :users
+
 end

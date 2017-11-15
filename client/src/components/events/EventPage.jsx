@@ -27,11 +27,26 @@ class EventPage extends Component {
     state = {
         event: {},
         tailgates: [],
-        toggleForm: false
+        toggleForm: false,
+        weather: {}
     }
     async componentWillMount() {
         await this.getEvent()
         await this.getEventTailgates()
+        await this.getWeather()
+    }
+
+    getWeather = async () => {
+        const zip = this.state.event.zipcode
+        const res = await axios.get(`/api/weather/${zip}`)
+        console.log(res.data)
+        const formattedResponse = {
+            temp: res.data.main.temp,
+            weatherCondition: res.data.weather[0].description
+
+        }
+        this.setState({weather: formattedResponse})
+
     }
 
     getEvent = async () => {
@@ -92,6 +107,8 @@ class EventPage extends Component {
                     <h1>{this.state.event.event_name}</h1>
                     <h3>{this.state.event.location}</h3>
                     <h4>{this.state.event.teams}</h4>
+                    <h4>Temp: {this.state.weather.temp}°F</h4>
+                    <h4>{this.state.weather.weatherCondition}</h4>
                 </TitleWrapper>
                 <PageWrapper>
                 <StyleWrapper>

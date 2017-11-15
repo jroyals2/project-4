@@ -11,7 +11,7 @@ display: flex;
 justify-content: space-around;
 `
 
-const HeaderTag = styled.h1`
+const HeaderTag = styled.h2`
 margin: 50px;
 `
 
@@ -29,6 +29,7 @@ transition: 0.3s;
 class UserPage extends Component {
 
     state = {
+        user: {},
         events: [],
         tailgates: []
     }
@@ -36,8 +37,13 @@ class UserPage extends Component {
     async componentWillMount() {
         await this.getEvents()
         await this.getUserTailgates()
+        await this.getUser()
     }
   
+    getUser = async () => {
+        const res = await axios.get('/users')
+        this.setState({user: res.data})
+    }
     getEvents = async () => {
         try {
             const res = await axios.get(`/api/events`)
@@ -86,7 +92,7 @@ class UserPage extends Component {
         </div>
         return (
             <PageWrapper>
-                <HeaderTag>Welcome to Your Tailgates Home Base!</HeaderTag>
+                <HeaderTag>Welcome to Your Tailgates Home Base, {this.state.user.name}!</HeaderTag>
                 <FlexWrap>
                     <CardWrapper>
                         {eventList}

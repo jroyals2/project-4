@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
 
     def index
-        @users = current_user
-        render json: @users
+        @user = current_user
+        render json: @user
 
     end
 end
