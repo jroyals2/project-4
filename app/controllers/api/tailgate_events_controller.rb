@@ -9,8 +9,15 @@ class Api::TailgateEventsController < ApplicationController
 
     def show
         tailgate_events_id = params[:id]
-        @tailgate_event = TailgateEvent.find_by_id(tailgate_events_id)
-        render json: @tailgate_event
+        @tailgate_event = TailgateEvent.joins(:user).includes(:user).find_by_id(tailgate_events_id)
+
+        tailgate_response = {
+            about: @tailgate_event.about,
+            cost: @tailgate_event.cost,
+            tailgate_name: @tailgate_event.tailgate_name,
+            user: @tailgate_event.user
+        }
+        render json: tailgate_response
     end
         
     def create

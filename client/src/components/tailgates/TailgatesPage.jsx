@@ -25,7 +25,7 @@ class TailgatesPage extends Component {
             const res = await axios.get(`/api/tailgate_events/${id}`)
             console.log(res.data)
             this.setState({ tailgate: res.data })
-
+            console.log(res.data)
         } catch (error) {
             console.log(error)
         }
@@ -74,6 +74,7 @@ class TailgatesPage extends Component {
         const noEdit = <div>
             <TitleWrapper>
                 <h1>{this.state.tailgate.tailgate_name}</h1>
+                {/* <h2>{this.state.tailgate.user.name}</h2> */}
                 <h3>{this.state.tailgate.about}</h3>
                 <p>{this.state.tailgate.cost}</p>
                 <button onClick={this.handleToggle}>Edit</button>
@@ -99,7 +100,7 @@ class TailgatesPage extends Component {
             </form>
             <button onClick={this.handleToggle}>Go back</button>
         </div>
-        
+
         return (
             <div>
                 {this.state.edit ? edit : noEdit}
