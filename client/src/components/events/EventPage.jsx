@@ -20,6 +20,21 @@ justify-content: center;
 const FormWrapper = styled.div`
 
 `
+const CardWrapperTwo = styled.div`
+background-color: white;
+box-shadow: 3px 4px 8px 0 rgba(0,0,0,0.2);
+transition: 0.3s;
+width: 50vw;
+height: 23vw;
+text-align: center;
+border: 2px solid silver;
+:hover {
+    box-shadow: 2px 8px 16px 0 rgba(0,0,0,0.2);
+}
+  padding: 2px 16px;
+margin: 40px;
+`
+
 const CardWrapper = styled.div`
 background-color: white;
 box-shadow: 3px 4px 8px 0 rgba(0,0,0,0.2);
@@ -104,15 +119,14 @@ class EventPage extends Component {
         const tailgates = <div>
             {this.state.tailgates.map((tailgate) => {
                 return (
-                    <div>
+                    <CardWrapper>
                         <Link to={`/users/tailgates/${tailgate.id}`}><h3>{tailgate.tailgate_name}</h3></Link>
                         <br />
                         <h4>{tailgate.about}</h4>
                         <br />
                         <div>{tailgate.cost}</div>
                         <br />
-                        <hr />
-                    </div>
+                    </CardWrapper>
 
                 )
             })}
@@ -120,14 +134,14 @@ class EventPage extends Component {
         return (
             <div>
                 <TitleWrapper>
-                    <CardWrapper>
+                    <CardWrapperTwo>
                     <h1>{this.state.event.event_name}</h1>
                     <h3>{this.state.event.location}</h3>
                     <h3>{this.state.event.date}</h3>
                     <h4>{this.state.event.teams}</h4>
                     <h4>Temp: {this.state.weather.temp}°F</h4>
                     <h4>Conditions: {this.state.weather.weatherCondition}</h4>
-                    </CardWrapper>
+                    </CardWrapperTwo>
                 </TitleWrapper>
                 <PageWrapper>
                 <StyleWrapper>
