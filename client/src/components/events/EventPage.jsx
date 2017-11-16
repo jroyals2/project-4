@@ -13,10 +13,26 @@ justify-content: space-around;
 
 const TitleWrapper = styled.div`
 text-align: center;
+display: flex;
+justify-content: center;
 `
 
 const FormWrapper = styled.div`
 
+`
+const CardWrapper = styled.div`
+background-color: white;
+box-shadow: 3px 4px 8px 0 rgba(0,0,0,0.2);
+transition: 0.3s;
+width: 22vw;
+height: 23vw;
+text-align: center;
+border: 2px solid silver;
+:hover {
+    box-shadow: 2px 8px 16px 0 rgba(0,0,0,0.2);
+}
+  padding: 2px 16px;
+margin: 40px;
 `
 const StyleWrapper = styled.div`
 
@@ -104,12 +120,14 @@ class EventPage extends Component {
         return (
             <div>
                 <TitleWrapper>
+                    <CardWrapper>
                     <h1>{this.state.event.event_name}</h1>
                     <h3>{this.state.event.location}</h3>
                     <h3>{this.state.event.date}</h3>
                     <h4>{this.state.event.teams}</h4>
                     <h4>Temp: {this.state.weather.temp}°F</h4>
                     <h4>{this.state.weather.weatherCondition}</h4>
+                    </CardWrapper>
                 </TitleWrapper>
                 <PageWrapper>
                 <StyleWrapper>

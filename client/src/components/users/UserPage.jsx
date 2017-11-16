@@ -19,11 +19,15 @@ const CardWrapper = styled.div`
 background-color: white;
 box-shadow: 3px 4px 8px 0 rgba(0,0,0,0.2);
 transition: 0.3s;
+width: 22vw;
+height: 22vw;
+text-align: center;
+border: 2px solid silver;
 :hover {
     box-shadow: 2px 8px 16px 0 rgba(0,0,0,0.2);
 }
   padding: 2px 16px;
-margin: 50px;
+margin: 40px;
 `
 const AnotherFlexWrap = styled.div`
 display: flex;
@@ -123,12 +127,10 @@ class UserPage extends Component {
                     <CardWrapper>
                         {tailgates}
                     </CardWrapper>
-                </FlexWrap>
-                <AnotherFlexWrap>
-                <CardWrapper>
+                    <CardWrapper>
                 {tailgatesAttending}
                 </CardWrapper>
-                </AnotherFlexWrap>
+                </FlexWrap>
             </PageWrapper>
         );
     }
