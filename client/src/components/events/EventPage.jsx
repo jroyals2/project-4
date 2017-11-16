@@ -24,7 +24,7 @@ const CardWrapper = styled.div`
 background-color: white;
 box-shadow: 3px 4px 8px 0 rgba(0,0,0,0.2);
 transition: 0.3s;
-width: 22vw;
+width: 23vw;
 height: 23vw;
 text-align: center;
 border: 2px solid silver;
@@ -126,7 +126,7 @@ class EventPage extends Component {
                     <h3>{this.state.event.date}</h3>
                     <h4>{this.state.event.teams}</h4>
                     <h4>Temp: {this.state.weather.temp}°F</h4>
-                    <h4>{this.state.weather.weatherCondition}</h4>
+                    <h4>Conditions: {this.state.weather.weatherCondition}</h4>
                     </CardWrapper>
                 </TitleWrapper>
                 <PageWrapper>

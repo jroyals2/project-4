@@ -6,16 +6,18 @@ import styled from 'styled-components'
 const TitleWrapper = styled.div`
 text-align: center;
 `
+
 const StyledForm = styled.form`
 display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
-margin: 25%;
+margin: 5%;
 
 `
 const PageWrapper = styled.div`
 display: flex;
+flex-direction: column;
 justify-content: center;
 align-items: center;
 `
@@ -129,22 +131,24 @@ class TailgatesPage extends Component {
         </div>
 
         const edit = <div>
+            <PageWrapper>
             <StyledForm onSubmit={this.handleSubmit}>
+                <div>Tailgate Name</div>
                 <FormDiv>
-                    <label htmlFor="tailgate_name">Tailgate name: </label>
                     <InputWrapper type="text" name="tailgate_name" placeholder="Name Your Tailgate!" value={this.state.tailgate.tailgate_name} onChange={this.handleChange} />
                 </FormDiv>
+                <div>Description</div>
                 <FormDiv>
-                    <label htmlFor="about">Description: </label>
                     <InputWrapper type="text" name="about" placeholder="Decribe the tailgate!" value={this.state.tailgate.about} onChange={this.handleChange} />
                 </FormDiv>
+                <div>Cost</div>
                 <FormDiv>
-                    <label htmlFor="cost">Cost: </label>
                     <InputWrapper type="text" name="cost" placeholder="Cost of admission?" value={this.state.tailgate.cost} onChange={this.handleChange} />
                 </FormDiv>
                 <button>Submit</button>
             </StyledForm>
             <button onClick={this.handleToggle}>Go back</button>
+            </PageWrapper>
         </div>
 
         return (
