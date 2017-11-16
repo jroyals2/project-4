@@ -1,5 +1,22 @@
 import React, { Component } from 'react';
 import axios from 'axios'
+import styled from 'styled-components'
+
+const FormDiv = styled.form`
+display: flex;
+flex-direction: column;
+margin: 5%;
+`
+const InputWrapper = styled.input`
+height: 30px;
+width: 280px;
+margin: 5px;
+
+`
+const SumbitButton = styled.button`
+width: 40%;
+margin: 5px;
+`
 
 class NewTailgateForm extends Component {
     state = {
@@ -45,22 +62,20 @@ class NewTailgateForm extends Component {
     render() {
         return (
             <div>
-                <form onSubmit={this.handleSubmit}>
-                    
+                <FormDiv onSubmit={this.handleSubmit}>
+                    <h3>Create Your Tailgate!</h3>
                     <div>
-                    <label htmlFor="tailgate_name">Tailgate name: </label>
-                    <input type="text" name="tailgate_name" placeholder="Name Your Tailgate!" value={this.state.newTailgate.tailgate_name} onChange={this.handleChange}/>
+                    <InputWrapper type="text" name="tailgate_name" placeholder="Name Your Tailgate!" value={this.state.newTailgate.tailgate_name} onChange={this.handleChange}/>
                     </div>
                     <div>
-                    <label htmlFor="about">Description: </label>
-                    <input type="text" name="about" placeholder="Decribe the tailgate!" value={this.state.newTailgate.about} onChange={this.handleChange}/>
+                    <InputWrapper type="text" name="about" placeholder="Decribe the tailgate!" value={this.state.newTailgate.about} onChange={this.handleChange}/>
                     </div>
                     <div>
-                    <label htmlFor="cost">Cost: </label>
-                    <input type="text" name="cost" placeholder="Cost of admission?" value={this.state.newTailgate.cost} onChange={this.handleChange}/>
+                    <InputWrapper type="text" name="cost" placeholder="Cost of admission?" value={this.state.newTailgate.cost} onChange={this.handleChange}/>
                     </div>
-                    <button>Submit</button>
-                </form>
+                    <SumbitButton>Submit</SumbitButton>
+                </FormDiv>
+                <button onClick={this.props.handleToggle}>Close form</button>
             </div>
         );
     }
