@@ -119,14 +119,16 @@ class EventPage extends Component {
         const tailgates = <div>
             {this.state.tailgates.map((tailgate) => {
                 return (
-                    <CardWrapper>
-                        <Link to={`/users/tailgates/${tailgate.id}`}><h3>{tailgate.tailgate_name}</h3></Link>
-                        <br />
-                        <h4>{tailgate.about}</h4>
-                        <br />
-                        <div>{tailgate.cost}</div>
-                        <br />
-                    </CardWrapper>
+                    <Link to={`/users/tailgates/${tailgate.id}`}>
+                        <CardWrapper>
+                            <h3>{tailgate.tailgate_name}</h3>
+                            <br />
+                            <h4>{tailgate.about}</h4>
+                            <br />
+                            <div>{tailgate.cost}</div>
+                            <br />
+                        </CardWrapper>
+                    </Link>
 
                 )
             })}
