@@ -56,8 +56,8 @@ const CardWrapperTwo = styled.div`
 background-color: white;
 box-shadow: 3px 4px 8px 0 rgba(0,0,0,0.2);
 transition: 0.3s;
-width: 80vw;
-height: 10vw;
+width: 70vw;
+height: 8vw;
 text-align: center;
 border: 2px solid silver;
 :hover {
@@ -81,7 +81,9 @@ border: 2px solid silver;
 padding: 2px 16px;
 margin: 40px;
 `
-
+const FlexRow = styled.div`
+    display: flex;
+`
 class TailgatesPage extends Component {
 
     state = {
@@ -169,7 +171,7 @@ class TailgatesPage extends Component {
             <CardWrapperTwo>
                 <h1>{this.state.tailgate.tailgate_name}</h1>
                 </CardWrapperTwo>
-                
+                <FlexRow>
                 <CardWrapper>
                 <h2>Hosted by: {this.state.tailgate.user}</h2>
                 <h3>{this.state.tailgate.about}</h3>
@@ -193,6 +195,7 @@ class TailgatesPage extends Component {
             })}
             
             </CardWrapper>
+            </FlexRow>
             </FlexThing>
         </PageWrapper>
 

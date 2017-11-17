@@ -28,14 +28,25 @@ float: left;
 display: flex;
 
 `
-const SideText = styled.h3`
-float: right;
-display: flex;
+const SideText = styled.h2`
+text-align: right;
 `
-const WeirdDiv = styled.div`
-display: flex;
-align-items: center;
 
+const CardWrapper = styled.div`
+background-color: white;
+box-shadow: 3px 4px 8px 0 rgba(0,0,0,0.2);
+transition: 0.3s;
+width: 90vw;
+height: 40vw;
+text-align: center;
+border: 2px solid silver;
+background-color: rgba(255, 255, 255, .8);
+:hover {
+    box-shadow: 2px 8px 16px 0 rgba(0,0,0,0.2);
+    
+}
+padding: 2px 16px;
+margin: 40px;
 `
 class Landing extends Component {
     render() {
@@ -43,14 +54,12 @@ class Landing extends Component {
             return <Redirect to='/users' />
         }
         return (
-            <div>
+            <CardWrapper>
                 <Headline>Welcome to Tailgates!</Headline>
                 <Content><p>Do you love going to tailgates but sometimes don't know where the best one is?  This is the spot for you! Here you can see all the tailgates coming up for any sporting event! Here you can also set up a tailgate for all of your freinds and fellow fans to attend as well!</p></Content>
-                <WeirdDiv>
-                <ImageWrapper src="https://media.istockphoto.com/photos/twenty-and-thirty-yard-line-on-american-football-field-picture-id115773361?k=6&m=115773361&s=612x612&w=0&h=4Rmo5xKwjMwhhDmb0HdJ-mIVCDov0qLQWX5qBGs3DuE=" alt=""/>
                 <SideText>Every event could be your best tailgate!</SideText>
-                </WeirdDiv>
-            </div>
+
+            </CardWrapper>
         );
     }
 }

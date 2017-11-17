@@ -30,11 +30,10 @@ align-items: center;
 justify-content: center;
 box-shadow: 3px 4px 8px 0 rgba(0,0,0,0.2);
 transition: 0.3s;
-width: 35vw;
+width: 32vw;
 height: 26vw;
 text-align: center;
 border: 2px solid silver;
-background-color: rgba(255, 255, 255, .8);
 :hover {
     box-shadow: 2px 8px 16px 0 rgba(0,0,0,0.2);
 }
@@ -47,7 +46,7 @@ background-color: white;
 box-shadow: 3px 4px 8px 0 rgba(0,0,0,0.2);
 transition: 0.3s;
 width: 50vw;
-height: 23vw;
+height: 27vw;
 text-align: center;
 border: 2px solid silver;
 :hover {
@@ -62,14 +61,13 @@ const CardWrapper = styled.div`
 background-color: white;
 box-shadow: 3px 4px 8px 0 rgba(0,0,0,0.2);
 transition: 0.3s;
-width: 23vw;
-height: 23vw;
+width: 29vw;
+height: 25vw;
 text-align: center;
 border: 2px solid silver;
-background-color: rgba(255, 255, 255, .8);
 :hover {
     box-shadow: inset 0 0 1em black, 0 0 1em white;
-    background-color: red;
+   
 }
   padding: 2px 16px;
 margin: 40px;
@@ -103,7 +101,7 @@ class EventPage extends Component {
             weatherCondition: res.data.weather[0].description
 
         }
-        this.setState({weather: formattedResponse})
+        this.setState({ weather: formattedResponse })
 
     }
 
@@ -148,12 +146,13 @@ class EventPage extends Component {
                 return (
                     <Link className="link" to={`/users/tailgates/${tailgate.id}`}>
                         <CardWrapper>
-                            <h3>{tailgate.tailgate_name}</h3>
+                            <h2>{tailgate.tailgate_name}</h2>
                             <br />
-                            <h4>{tailgate.about}</h4>
+                            <h3>{tailgate.about}</h3>
                             <br />
                             <div>{tailgate.cost}</div>
                             <br />
+                            <h3>Click for more info!</h3>
                         </CardWrapper>
                     </Link>
 
@@ -164,23 +163,23 @@ class EventPage extends Component {
             <div>
                 <TitleWrapper>
                     <CardWrapperTwo>
-                    <h1>{this.state.event.event_name}</h1>
-                    <h3>{this.state.event.location}</h3>
-                    <h3>{this.state.event.date}</h3>
-                    <h4>{this.state.event.teams}</h4>
-                    <h4>Temp: {this.state.weather.temp}°F</h4>
-                    <h4>Conditions: {this.state.weather.weatherCondition}</h4>
+                        <h1>{this.state.event.event_name}</h1>
+                        <h3>{this.state.event.location}</h3>
+                        <h3>{this.state.event.date}</h3>
+                        <h4>{this.state.event.teams}</h4>
+                        <h4>Temp: {this.state.weather.temp}°F</h4>
+                        <h4>Conditions: {this.state.weather.weatherCondition}</h4>
                     </CardWrapperTwo>
                 </TitleWrapper>
                 <PageWrapper>
-                <StyleWrapper>
-                    {tailgates}
-                </StyleWrapper>
-                <FormWrapper>
-                    <CardWrapperForm>
-                    {this.state.toggleForm ? <NewTailgateForm handleToggle={this.handleToggle} getEventTailgates={this.getEventTailgates} eventId={this.props.match.params.event_id} /> : host}
-                    </CardWrapperForm>
-                </FormWrapper>
+                    <StyleWrapper>
+                        {tailgates}
+                    </StyleWrapper>
+                    <FormWrapper>
+                        <CardWrapperForm>
+                            {this.state.toggleForm ? <NewTailgateForm handleToggle={this.handleToggle} getEventTailgates={this.getEventTailgates} eventId={this.props.match.params.event_id} /> : host}
+                        </CardWrapperForm>
+                    </FormWrapper>
                 </PageWrapper>
             </div>
         );

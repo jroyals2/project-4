@@ -10,9 +10,25 @@ const FlexWrap = styled.div`
 display: flex;
 justify-content: space-around;
 `
-
-const HeaderTag = styled.h2`
-margin: 50px;
+const DecorationRemover = styled.a`
+text-decoration: none;
+a:clicked {
+    text-decoration: none;
+}
+`
+const HeaderTag = styled.h1`
+background-color: white;
+box-shadow: 3px 4px 8px 0 rgba(0,0,0,0.2);
+transition: 0.3s;
+width: 89vw;
+height: 4vw;
+text-align: center;
+border: 2px solid silver;
+:hover {
+    box-shadow: 2px 8px 16px 0 rgba(0,0,0,0.2);
+}
+  padding: 2px 16px;
+margin: 40px;
 `
 
 const CardWrapper = styled.div`
@@ -93,7 +109,7 @@ class UserPage extends Component {
             {this.state.events.map((event) => {
                 return(<div>
                     
-                    <Link to={`/events/${event.id}`}>{event.event_name}</Link>
+                    <Link to={`/events/${event.id}`}><DecorationRemover>{event.event_name}</DecorationRemover></Link>
                 </div>)
             })}
         </div>

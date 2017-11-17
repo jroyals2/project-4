@@ -3,21 +3,29 @@ import styled from 'styled-components'
 import { Link, Redirect } from 'react-router-dom'
 
 
+const ButtonP = styled.a`
+p:hover {
+    color: grey;
+}
+`
 const Nav = styled.div`
 display: flex;
 flex-direction: row;
 justify-content: space-around;
 box-shadow: 3px 4px 8px 0 rgba(0,0,0,0.2);
 align-items: center;
-background-color: red;
-color: silver;
+background-color: black;
+color: white;
 height: 70px;
 a {
     text-decoration: none;
-    color: silver;
+    color: white;
 }
 a:clicked {
-    color: silver;
+    color: white;
+}
+a:hover {
+    color: grey;
 }
 `
 
@@ -39,7 +47,7 @@ signOutRedirect = async (event) => {
             <Nav>
                 <div>Tailgates!</div>
                 <Link to={`/`}>Home</Link>
-                {this.props.signedIn ? <p onClick={this.signOutRedirect}>Sign out</p> : <Link to={`/signup`}>Sign In</Link>}
+                {this.props.signedIn ? <ButtonP onClick={this.signOutRedirect}>Sign out</ButtonP> : <Link to={`/signup`}>Sign In</Link>}
             </Nav>
         );
     }
