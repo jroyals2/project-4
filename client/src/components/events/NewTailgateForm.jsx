@@ -89,13 +89,13 @@ class NewTailgateForm extends Component {
                 <FormDiv onSubmit={this.handleSubmit}>
                     <h3>Create Your Tailgate!</h3>
                     <div>
-                    <InputWrapper type="text" name="tailgate_name" placeholder="Name Your Tailgate!" value={this.state.newTailgate.tailgate_name} onChange={this.handleChange}/>
+                    <InputWrapper required type="text" name="tailgate_name" placeholder="Name Your Tailgate!" value={this.state.newTailgate.tailgate_name} onChange={this.handleChange}/>
                     </div>
                     <div>
-                    <InputWrapper type="text" name="about" placeholder="Decribe the tailgate!" value={this.state.newTailgate.about} onChange={this.handleChange}/>
+                    <InputWrapper required type="text" name="about" placeholder="Decribe the tailgate!" value={this.state.newTailgate.about} onChange={this.handleChange}/>
                     </div>
                     <div>
-                    <InputWrapper type="text" name="cost" placeholder="Cost of admission?" value={this.state.newTailgate.cost} onChange={this.handleChange}/>
+                    <InputWrapper required type="text" name="cost" placeholder="Cost of admission?" value={this.state.newTailgate.cost} onChange={this.handleChange}/>
                     </div>
                     <SumbitButton>Submit</SumbitButton>
                 </FormDiv>
