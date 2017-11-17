@@ -13,9 +13,33 @@ width: 280px;
 margin: 5px;
 
 `
+// Thanks http://css3buttongenerator.com/!!!!
 const SumbitButton = styled.button`
-width: 40%;
-margin: 5px;
+    background: #000000;
+    background-image: -webkit-linear-gradient(top, #000000, #305973);
+    background-image: -moz-linear-gradient(top, #000000, #305973);
+    background-image: -ms-linear-gradient(top, #000000, #305973);
+    background-image: -o-linear-gradient(top, #000000, #305973);
+    background-image: linear-gradient(to bottom, #000000, #305973);
+    -webkit-border-radius: 10;
+    -moz-border-radius: 10;
+    border-radius: 10px;
+    font-family: Georgia;
+    color: #adadad;
+    font-size: 15px;
+    width: 9vw;
+    height: 3vw;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+    :hover {
+    background: #45535c;
+    background-image: -webkit-linear-gradient(top, #45535c, #000000);
+    background-image: -moz-linear-gradient(top, #45535c, #000000);
+    background-image: -ms-linear-gradient(top, #45535c, #000000);
+    background-image: -o-linear-gradient(top, #45535c, #000000);
+    background-image: linear-gradient(to bottom, #45535c, #000000);
+    text-decoration: none;
+  }
 `
 
 class NewTailgateForm extends Component {
@@ -75,7 +99,7 @@ class NewTailgateForm extends Component {
                     </div>
                     <SumbitButton>Submit</SumbitButton>
                 </FormDiv>
-                <button onClick={this.props.handleToggle}>Close form</button>
+                <SumbitButton onClick={this.props.handleToggle}>Close</SumbitButton>
             </div>
         );
     }

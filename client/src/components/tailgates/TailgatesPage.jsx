@@ -10,7 +10,32 @@ const FlexThing = styled.div`
 flex-direction: row;
 justify-content: center;
 `
-
+const ButtonWrapper = styled.button`
+    background: #000000;
+    background-image: -webkit-linear-gradient(top, #000000, #305973);
+    background-image: -moz-linear-gradient(top, #000000, #305973);
+    background-image: -ms-linear-gradient(top, #000000, #305973);
+    background-image: -o-linear-gradient(top, #000000, #305973);
+    background-image: linear-gradient(to bottom, #000000, #305973);
+    -webkit-border-radius: 10;
+    -moz-border-radius: 10;
+    border-radius: 10px;
+    font-family: Georgia;
+    margin: 2px;
+    color: #adadad;
+    font-size: 13px;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+hover {
+    background: #000000;
+    background-image: -webkit-linear-gradient(top, #000000, #000000);
+    background-image: -moz-linear-gradient(top, #000000, #000000);
+    background-image: -ms-linear-gradient(top, #000000, #000000);
+    background-image: -o-linear-gradient(top, #000000, #000000);
+    background-image: linear-gradient(to bottom, #000000, #000000);
+    text-decoration: none;
+  }
+`
 const StyledForm = styled.form`
 display: flex;
 flex-direction: column;
@@ -21,12 +46,12 @@ margin: 5%;
 `
 const CardWrapperThree = styled.div`
 display: flex;
-flex-direction: row;
+flex-direction: column;
 background-color: white;
 box-shadow: 3px 4px 8px 0 rgba(0,0,0,0.2);
 transition: 0.3s;
 width: 30vw;
-height: 30vw;
+height: 40vw;
 text-align: center;
 border: 2px solid silver;
 :hover {
@@ -42,14 +67,18 @@ flex-direction: row;
 justify-content: center;
 align-items: center;
 `
-
+const HeadlineWrapper = styled.h3`
+margin: 2px
+`
 const FormDiv = styled.div`
 display: flex;
 margin: 5%;
 `
 const InputWrapper = styled.input`
 height: 30px;
+
 width: 280px;
+background-color: silver;
 
 `
 const CardWrapperTwo = styled.div`
@@ -83,6 +112,9 @@ margin: 40px;
 `
 const FlexRow = styled.div`
     display: flex;
+`
+const SmallDiv = styled.div`
+background-color: white;
 `
 class TailgatesPage extends Component {
 
@@ -176,9 +208,11 @@ class TailgatesPage extends Component {
                 <h2>Hosted by: {this.state.tailgate.user}</h2>
                 <h3>{this.state.tailgate.about}</h3>
                 <p>{this.state.tailgate.cost}</p>
-                <button onClick={this.handleToggle}>Edit</button>
-                <button onClick={this.deleteTailgateEvent}>Delete</button>
-                <button onClick={this.addCurrentUserToTailgate}>Attend this tailgate</button>
+                <div>
+                <ButtonWrapper onClick={this.handleToggle}>Edit</ButtonWrapper>
+                </div>
+                <div><ButtonWrapper onClick={this.deleteTailgateEvent}>Delete</ButtonWrapper></div>
+                <ButtonWrapper onClick={this.addCurrentUserToTailgate}>Attend this tailgate</ButtonWrapper>
                 </CardWrapper>
             {/* </TitleWrapper> */}
             
@@ -201,22 +235,26 @@ class TailgatesPage extends Component {
 
         const edit = <div>
             <PageWrapper>
+                <CardWrapperThree>
             <StyledForm onSubmit={this.handleSubmit}>
-                <div>Tailgate Name</div>
+                <HeadlineWrapper>Tailgate Name</HeadlineWrapper>
                 <FormDiv>
                     <InputWrapper type="text" name="tailgate_name" placeholder="Name Your Tailgate!" value={this.state.tailgate.tailgate_name} onChange={this.handleChange} />
                 </FormDiv>
-                <div>Description</div>
+                <HeadlineWrapper>Description</HeadlineWrapper>
                 <FormDiv>
                     <InputWrapper type="text" name="about" placeholder="Decribe the tailgate!" value={this.state.tailgate.about} onChange={this.handleChange} />
                 </FormDiv>
-                <div>Cost</div>
+                <HeadlineWrapper>Cost</HeadlineWrapper>
                 <FormDiv>
                     <InputWrapper type="text" name="cost" placeholder="Cost of admission?" value={this.state.tailgate.cost} onChange={this.handleChange} />
                 </FormDiv>
-                <button>Submit</button>
+                <ButtonWrapper>Submit</ButtonWrapper>
             </StyledForm>
-            <button onClick={this.handleToggle}>Go back</button>
+            <div>
+            <ButtonWrapper onClick={this.handleToggle}>Go back</ButtonWrapper>
+            </div>
+            </CardWrapperThree>
             </PageWrapper>
         </div>
 

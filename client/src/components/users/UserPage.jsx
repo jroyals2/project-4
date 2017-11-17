@@ -10,12 +10,7 @@ const FlexWrap = styled.div`
 display: flex;
 justify-content: space-around;
 `
-const DecorationRemover = styled.a`
-text-decoration: none;
-a:clicked {
-    text-decoration: none;
-}
-`
+
 const HeaderTag = styled.h1`
 background-color: white;
 box-shadow: 3px 4px 8px 0 rgba(0,0,0,0.2);
@@ -109,7 +104,7 @@ class UserPage extends Component {
             {this.state.events.map((event) => {
                 return(<div>
                     
-                    <Link to={`/events/${event.id}`}><DecorationRemover>{event.event_name}</DecorationRemover></Link>
+                    <Link className="event-link" to={`/events/${event.id}`}>{event.event_name}</Link>
                 </div>)
             })}
         </div>
@@ -118,7 +113,7 @@ class UserPage extends Component {
             {this.state.tailgates.map((tailgate) => {
                 return (
                 <div>
-                    <Link to={`/users/tailgates/${tailgate.id}`}>{tailgate.tailgate_name}</Link>
+                    <Link className="event-link" to={`/users/tailgates/${tailgate.id}`}>{tailgate.tailgate_name}</Link>
                 </div>)
             })}
 
@@ -128,7 +123,7 @@ class UserPage extends Component {
             {this.state.attending.map((events) => {
                 return (
                     <div>
-                   <Link to={`/users/tailgates/${events.tailgate_id}`}>{events.tailgate_name}</Link>
+                   <Link className="event-link" to={`/users/tailgates/${events.tailgate_id}`}>{events.tailgate_name}</Link>
                    </div>
                 )
             })}

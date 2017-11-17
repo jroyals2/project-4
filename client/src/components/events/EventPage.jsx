@@ -56,6 +56,33 @@ border: 2px solid silver;
 margin: 40px;
 
 `
+const ToggleButton = styled.button`
+    background: #000000;
+    background-image: -webkit-linear-gradient(top, #000000, #305973);
+    background-image: -moz-linear-gradient(top, #000000, #305973);
+    background-image: -ms-linear-gradient(top, #000000, #305973);
+    background-image: -o-linear-gradient(top, #000000, #305973);
+    background-image: linear-gradient(to bottom, #000000, #305973);
+    -webkit-border-radius: 10;
+    -moz-border-radius: 10;
+    border-radius: 10px;
+    font-family: Georgia;
+    color: #adadad;
+    font-size: 20px;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+  
+  :hover {
+    background: #000000;
+    background-image: -webkit-linear-gradient(top, #000000, #000000);
+    background-image: -moz-linear-gradient(top, #000000, #000000);
+    background-image: -ms-linear-gradient(top, #000000, #000000);
+    background-image: -o-linear-gradient(top, #000000, #000000);
+    background-image: linear-gradient(to bottom, #000000, #000000);
+    text-decoration: none;
+  }
+  
+`
 
 const CardWrapper = styled.div`
 background-color: white;
@@ -139,7 +166,7 @@ class EventPage extends Component {
         }
         const host = <div>
             <h3>Don't see an event you like? Host one!</h3>
-            <button onClick={this.handleToggle}>Host an event!</button>
+            <ToggleButton onClick={this.handleToggle}>Host an event!</ToggleButton>
         </div>
         const tailgates = <div>
             {this.state.tailgates.map((tailgate) => {

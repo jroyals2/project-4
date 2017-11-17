@@ -17,4 +17,12 @@ body {
 .link:visited {
   color: black;
 }
+.event-link {
+  text-decoration: none;
+  padding: 15px;
+  color: grey;
+}
 
+.event-link:visited {
+  color: grey;
+}
