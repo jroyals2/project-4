@@ -18,6 +18,28 @@ justify-content: center;
 `
 
 const FormWrapper = styled.div`
+flex-direction: column;
+justify-content: center;
+align-items: center;
+
+`
+const CardWrapperForm = styled.div`
+background-color: white;
+display: flex;
+align-items: center;
+justify-content: center;
+box-shadow: 3px 4px 8px 0 rgba(0,0,0,0.2);
+transition: 0.3s;
+width: 35vw;
+height: 26vw;
+text-align: center;
+border: 2px solid silver;
+background-color: rgba(255, 255, 255, .8);
+:hover {
+    box-shadow: 2px 8px 16px 0 rgba(0,0,0,0.2);
+}
+  padding: 2px 16px;
+margin: 40px;
 
 `
 const CardWrapperTwo = styled.div`
@@ -33,6 +55,7 @@ border: 2px solid silver;
 }
   padding: 2px 16px;
 margin: 40px;
+
 `
 
 const CardWrapper = styled.div`
@@ -43,11 +66,15 @@ width: 23vw;
 height: 23vw;
 text-align: center;
 border: 2px solid silver;
+background-color: rgba(255, 255, 255, .8);
 :hover {
-    box-shadow: 2px 8px 16px 0 rgba(0,0,0,0.2);
+    box-shadow: inset 0 0 1em black, 0 0 1em white;
+    background-color: red;
 }
   padding: 2px 16px;
 margin: 40px;
+text-decoration: none;
+
 `
 const StyleWrapper = styled.div`
 
@@ -119,7 +146,7 @@ class EventPage extends Component {
         const tailgates = <div>
             {this.state.tailgates.map((tailgate) => {
                 return (
-                    <Link to={`/users/tailgates/${tailgate.id}`}>
+                    <Link className="link" to={`/users/tailgates/${tailgate.id}`}>
                         <CardWrapper>
                             <h3>{tailgate.tailgate_name}</h3>
                             <br />
@@ -150,7 +177,9 @@ class EventPage extends Component {
                     {tailgates}
                 </StyleWrapper>
                 <FormWrapper>
+                    <CardWrapperForm>
                     {this.state.toggleForm ? <NewTailgateForm handleToggle={this.handleToggle} getEventTailgates={this.getEventTailgates} eventId={this.props.match.params.event_id} /> : host}
+                    </CardWrapperForm>
                 </FormWrapper>
                 </PageWrapper>
             </div>

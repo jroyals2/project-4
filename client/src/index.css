@@ -3,9 +3,17 @@ body {
   padding: 0;
   font-family: 'Play', sans-serif;
   background-color: rgba(247, 244, 219, .5);
-  background-image: url("http://redpithemes.com/Documentation/assets/img/page_bg/page_bg_blur03.jpg");
+  background-image: url("https://www.flipkey.com/blog/wp-content/uploads/Tailgate-BBQ.jpg");
   background-attachment: fixed;
 
 
 
 }
+
+.link {
+  text-decoration: none;
+}
+.link:visited {
+  color: black;
+}
+

@@ -19,7 +19,7 @@ james = User.create!(
 )
 
 falcons = Event.create!(
-    event_name: "Falcons game",
+    event_name: "FALCONS GAME",
     location: "Atlanta, Georgia",
     zipcode: 30308,
     date: "November 11th, 2017",
@@ -27,7 +27,7 @@ falcons = Event.create!(
 )
 
 braves = Event.create!(
-    event_name: "Braves game",
+    event_name: "BRAVES GAME",
     location: "Atlanta, Georgia",
     zipcode: 30339,
     date: "November 30th, 2017",

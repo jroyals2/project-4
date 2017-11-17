@@ -6,6 +6,10 @@ import styled from 'styled-components'
 const TitleWrapper = styled.div`
 text-align: center;
 `
+const FlexThing = styled.div`
+flex-direction: row;
+justify-content: center;
+`
 
 const StyledForm = styled.form`
 display: flex;
@@ -14,6 +18,22 @@ justify-content: center;
 align-items: center;
 margin: 5%;
 
+`
+const CardWrapperThree = styled.div`
+display: flex;
+flex-direction: row;
+background-color: white;
+box-shadow: 3px 4px 8px 0 rgba(0,0,0,0.2);
+transition: 0.3s;
+width: 30vw;
+height: 30vw;
+text-align: center;
+border: 2px solid silver;
+:hover {
+    box-shadow: 2px 8px 16px 0 rgba(0,0,0,0.2);
+}
+  padding: 2px 16px;
+margin: 40px;
 `
 
 const PageWrapper = styled.div`
@@ -36,7 +56,7 @@ const CardWrapperTwo = styled.div`
 background-color: white;
 box-shadow: 3px 4px 8px 0 rgba(0,0,0,0.2);
 transition: 0.3s;
-width: 70vw;
+width: 80vw;
 height: 10vw;
 text-align: center;
 border: 2px solid silver;
@@ -56,8 +76,9 @@ text-align: center;
 border: 2px solid silver;
 :hover {
     box-shadow: 2px 8px 16px 0 rgba(0,0,0,0.2);
+    
 }
-  padding: 2px 16px;
+padding: 2px 16px;
 margin: 40px;
 `
 
@@ -143,10 +164,12 @@ class TailgatesPage extends Component {
         }
         const noEdit =
          <PageWrapper>
-            <TitleWrapper>
+             <FlexThing>
+            {/* <TitleWrapper> */}
             <CardWrapperTwo>
                 <h1>{this.state.tailgate.tailgate_name}</h1>
                 </CardWrapperTwo>
+                
                 <CardWrapper>
                 <h2>Hosted by: {this.state.tailgate.user}</h2>
                 <h3>{this.state.tailgate.about}</h3>
@@ -155,9 +178,10 @@ class TailgatesPage extends Component {
                 <button onClick={this.deleteTailgateEvent}>Delete</button>
                 <button onClick={this.addCurrentUserToTailgate}>Attend this tailgate</button>
                 </CardWrapper>
-            </TitleWrapper>
+            {/* </TitleWrapper> */}
             
             <CardWrapper>
+                
                 <h2>People Attending</h2>
                 <hr/>
             {this.state.members.map((user) => {
@@ -167,7 +191,9 @@ class TailgatesPage extends Component {
                     </div>
                 )
             })}
+            
             </CardWrapper>
+            </FlexThing>
         </PageWrapper>
 
         const edit = <div>
